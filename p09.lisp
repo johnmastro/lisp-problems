@@ -26,8 +26,6 @@
           ((null (cdr list)) (list list))
           (t (rec (car list) nil (cdr list))))))
 
-;; This is almost identcal do the `dolist` version but I haven't
-;; used `loop` for any of these problems yet so I'll do it anyway.
 (defun pack-by/loop (list &key (test #'eql))
   (flet ((run-loop (list)
            (loop with result = (list (list (car list)))
