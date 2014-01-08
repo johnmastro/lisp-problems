@@ -19,3 +19,9 @@
 (defun last/n (list &optional (n 1))
   (loop for sublist on list
         when (null (nthcdr n sublist)) return sublist))
+
+(deftest test-butlast ()
+  (check-each butlast* (butlast/rec butlast/iter)
+    (equal (butlast nil) nil)
+    (equal (butlast '(1)) nil)
+    (equal (butlast '(1 2)) '(1))))

@@ -16,3 +16,9 @@
         for item in list
         do (push item result)
         finally (return result)))
+
+(deftest test-reverse ()
+  (check-each rev (reverse/rec reverse/iter)
+    (equal (rev nil) nil)
+    (equal (rev '(1)) '(1))
+    (equal (rev '(1 2 3)) '(3 2 1))))

@@ -21,3 +21,9 @@
 (defun count-items/iter (list)
   (loop for item in list
         count 1))
+
+(deftest test-count-items ()
+  (check-each count* (count-items/rec count-items/rec2 count-items/iter)
+    (equal (count* nil) 0)
+    (equal (count* '(1)) 1)
+    (equal (count* '(1 2 3 4)) 4)))

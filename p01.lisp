@@ -12,3 +12,9 @@
 (defun last/iter (list)
   (loop for sublist on list
         when (null (cdr sublist)) return sublist))
+
+(deftest test-last ()
+  (check-each last* (last/rec last/iter)
+    (equal (last* nil) nil)
+    (equal (last* '(1)) '(1))
+    (equal (last* '(1 2)) '(2))))
