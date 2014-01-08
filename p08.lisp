@@ -2,6 +2,8 @@
 
 ;; Eliminate consecutive duplicates of list elements
 
+(in-package :lisp-problems)
+
 (defun compress/rec (list &key (test #'eql))
   (labels ((rec (item list)
              (cond ((null list) (list item))

@@ -4,6 +4,8 @@
 
 ;; Note that this is different from CL:BUTLAST
 
+(in-package :lisp-problems)
+
 (defun butlast/rec (list)
   (if (null (cddr list))
       list

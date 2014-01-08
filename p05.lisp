@@ -2,6 +2,8 @@
 
 ;; Reverse a list.
 
+(in-package :lisp-problems)
+
 (defun reverse/rec (list)
   (labels ((rev (list acc)
              (if (null list)

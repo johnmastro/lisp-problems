@@ -3,6 +3,8 @@
 ;; Given a run-length code list generated as specified in problem P11 construct
 ;; its uncompressed version.
 
+(in-package :lisp-problems)
+
 (defun unpack (obj)
   (if (listp obj)
       (make-list (first obj) :initial-element (second obj))

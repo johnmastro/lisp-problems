@@ -4,6 +4,8 @@
 ;; duplicates it is simply copied into the result list. Only elements with
 ;; duplicates are transferred as (N E) lists.
 
+(in-package :lisp-problems)
+
 (defun encode-modified/map (list)
   (mapcar #'(lambda (group)
               (let ((length (length group))

@@ -8,6 +8,8 @@
 ;; this, and I almost solved the problem directly instead. But, the direct
 ;; approach is the subject of problem 13 so I'll follow the instructions.
 
+(in-package :lisp-problems)
+
 (defun encode/map (list)
   (mapcar #'(lambda (group)
               (list (length group)

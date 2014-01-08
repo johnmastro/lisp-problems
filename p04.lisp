@@ -2,6 +2,8 @@
 
 ;; Find the number of elements of a list.
 
+(in-package :lisp-problems)
+
 ;; Tail recursive
 (defun count-items/rec (list)
   (labels ((cnt (list n)

@@ -2,6 +2,8 @@
 
 ;; Find the K'th element of a list.
 
+(in-package :lisp-problems)
+
 (defun element-at/rec (list n)
   (cond ((< n 1) (error "Index error: elements start at 1"))
         ((= n 1) (car list))

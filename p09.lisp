@@ -3,6 +3,8 @@
 ;; Pack consecutive duplicates of list elements into sublists.
 ;; (This is more commonly known as `group-by` or `partition-by`).
 
+(in-package :lisp-problems)
+
 (defun pack-by/iter (list &key (test #'eql))
   (flet ((iter (list)
            (let ((result (list (list (car list)))))

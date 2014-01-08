@@ -4,19 +4,10 @@
 ;; and hacky, but I've found it convenient for these problems since I've been
 ;; solving each more than once but don't want to have to specify the tests
 ;; repeatedly.
-;; 
+;;
 ;; See http://www.gigamonkeys.com/book/ for the original code and more.
 
-;; (defpackage :io.jbm.test
-;;   (:nicknames :test)
-;;   (:use :common-lisp)
-;;   (:export
-;;    :deftest
-;;    :check
-;;    :check-each
-;;    :combine-results))
-
-;; (in-package :io.jbm.test)
+(in-package :lisp-problems.test)
 
 (defvar *test-name* nil)
 

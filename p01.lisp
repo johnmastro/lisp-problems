@@ -2,6 +2,8 @@
 
 ;; Find the last box of a list.
 
+(in-package :lisp-problems)
+
 (defun last/rec (list)
   (if (null (cdr list))
       list

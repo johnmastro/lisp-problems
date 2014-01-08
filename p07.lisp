@@ -2,6 +2,8 @@
 
 ;; Flatten a nested list structure
 
+(in-package :lisp-problems)
+
 (defun flatten/rec (list)
   (cond ((null list) nil)
         ((listp (car list))
