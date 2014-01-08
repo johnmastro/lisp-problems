@@ -51,11 +51,14 @@
     (nreverse result)))
 
 (deftest test-compress ()
-  (check-each (compress/rec compress/iter compress/fold compress/naive-iter)
-    (equal (funcall it nil) nil)
-    (equal (funcall it '(a)) '(a))
-    (equal (funcall it '(a a)) '(a))
-    (equal (funcall it '(a b)) '(a b))
-    (equal (funcall it '(a a b b)) '(a b))
-    (equal (funcall it '(a a a a b c c a a d e e e e))
+  (check-each compress (compress/rec
+                        compress/iter
+                        compress/fold
+                        compress/naive-iter)
+    (equal (compress nil) nil)
+    (equal (compress '(a)) '(a))
+    (equal (compress '(a a)) '(a))
+    (equal (compress '(a b)) '(a b))
+    (equal (compress '(a a b b)) '(a b))
+    (equal (compress '(a a a a b c c a a d e e e e))
            '(a b c a d e))))

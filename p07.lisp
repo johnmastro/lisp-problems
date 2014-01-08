@@ -21,8 +21,8 @@
       (nreverse result))))
 
 (deftest test-flatten ()
-  (check-each (flatten/rec flatten/iter)
-    (equal (funcall it nil) nil)
-    (equal (funcall it '(a)) '(a))
-    (equal (funcall it '(a (b c) (d))) '(a b c d))
-    (equal (funcall it '(a (b (c) ((d) ((e)) f)))) '(a b c d e f))))
+  (check-each flatten (flatten/rec flatten/iter)
+    (equal (flatten nil) nil)
+    (equal (flatten '(a)) '(a))
+    (equal (flatten '(a (b c) (d))) '(a b c d))
+    (equal (flatten '(a (b (c) ((d) ((e)) f)))) '(a b c d e f))))

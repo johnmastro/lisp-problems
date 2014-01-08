@@ -41,11 +41,11 @@
           (t (run-loop list)))))
 
 (deftest test-pack-by ()
-  (check-each (pack-by/iter pack-by/rec pack-by/loop)
-    (equal (funcall it nil) nil)
-    (equal (funcall it '(a)) '((a)))
-    (equal (funcall it '(a a)) '((a a)))
-    (equal (funcall it '(a b)) '((a) (b)))
-    (equal (funcall it '(a a a a b c c a a d e e e e))
+  (check-each pack-by (pack-by/iter pack-by/rec pack-by/loop)
+    (equal (pack-by nil) nil)
+    (equal (pack-by '(a)) '((a)))
+    (equal (pack-by '(a a)) '((a a)))
+    (equal (pack-by '(a b)) '((a) (b)))
+    (equal (pack-by '(a a a a b c c a a d e e e e))
            '((a a a a) (b) (c c) (a a) (d) (e e e e)))))
 

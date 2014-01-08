@@ -6,7 +6,7 @@
 
 (in-package :lisp-problems)
 
-(defun encode-modified/map (list)
+(defun encode2/map (list)
   (mapcar #'(lambda (group)
               (let ((length (length group))
                     (item (first group)))
@@ -15,7 +15,7 @@
                     item)))
           (pack-by/iter list)))
 
-(defun encode-modified/iter (list)
+(defun encode2/iter (list)
   (let (result)
     (dolist (group (pack-by/iter list))
       (let ((length (length group))
@@ -24,13 +24,13 @@
               result)))
     (nreverse result)))
 
-(defun encode-modified/loop (list)
+(defun encode2/loop (list)
   (loop for group in (pack-by/iter list)
         for length = (length group) for item = (first group)
         when (> length 1) collect (list length item)
         else collect  item))
 
-(defun encode-modified/recur (list)
+(defun encode2/recur (list)
   (labels ((recur (list acc)
              (if (endp list)
                  (nreverse acc)
@@ -41,14 +41,14 @@
                    (recur (rest list) (cons it acc))))))
     (recur (pack-by/iter list) nil)))
 
-(deftest test-encode-modified ()
-  (check-each (encode-modified/map
-               encode-modified/iter
-               encode-modified/loop
-               encode-modified/recur)
-    (equal (funcall it nil) nil)
-    (equal (funcall it '(a)) '(a))
-    (equal (funcall it '(a a)) '((2 a)))
-    (equal (funcall it '(a b)) '(a b))
-    (equal (funcall it '(a a a a b c c a a d e e e e))
+(deftest test-encode2 ()
+  (check-each encode2 (encode2/map
+                       encode2/iter
+                       encode2/loop
+                       encode2/recur)
+    (equal (encode2 nil) nil)
+    (equal (encode2 '(a)) '(a))
+    (equal (encode2 '(a a)) '((2 a)))
+    (equal (encode2 '(a b)) '(a b))
+    (equal (encode2 '(a a a a b c c a a d e e e e))
            '((4 a) b (2 c) (2 a) d (4 e)))))
